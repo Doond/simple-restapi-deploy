@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ing-simple-restapi
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: restapi.192.168.99.100.xip.io
+    http:
+      paths:
+      - backend:
+          serviceName: simple-restapi-service
+          servicePort: 8888

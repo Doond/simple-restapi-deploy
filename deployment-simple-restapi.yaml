@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-restapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-restapi
+  template:
+    metadata:
+      labels:
+        app: simple-restapi
+    spec:
+      containers:
+      - name: simple-restapi
+        image: ysakashita/simple-restapi:latest
+        ports:
+        - containerPort: 8888
